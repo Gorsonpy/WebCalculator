@@ -13,13 +13,6 @@ func QueryInterest(c *gin.Context) {
 	if err != nil {
 		panic(err)
 	}
-	if !service.ExistDuration(cal.Duration, 0) {
-		c.JSON(http.StatusOK, gin.H{
-			"code": 400,
-			"msg":  "不存在对应时长",
-		})
-		return
-	}
 	interest := service.CalInterest(cal, 0)
 	c.JSON(http.StatusOK, gin.H{
 		"code":   200,

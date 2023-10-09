@@ -1,0 +1,72 @@
+<!--
+ * @Author: gorsonpy
+ * @Date: 2023-09-25 19:59:56
+ * @LastEditors: gorsonpy
+ * @LastEditTime: 2023-10-09 10:28:22
+ * @FilePath: \Web_Calculator\index.html
+ * @Description:
+-->
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--    <link rel="stylesheet" type="text/css" href="b.css">-->
+    <link rel = "stylesheet" type = "text/css" href="c.css">
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    });
+    </script>
+    <script src="math.js" type="application/javascript"></script>
+    <script src="index.js" type="application/javascript"></script>
+</head>
+
+<body>
+
+<div class="center">
+    <h1>$Gorsonpy$ 的 计算器</h1>
+    <form name="calculator">
+        <input type="text" id="display" readonly>
+        <br>
+        <input type="button" class="btn number" value="7" onclick="get(this.value);">
+        <input type="button" class="btn number" value="8" onclick="get(this.value);">
+        <input type="button" class="btn number" value="9" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="+" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="(" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="log" onclick="get_with_left_bracket(this.value);">
+        <input type="button" class="btn operator" value="tan" onclick="get_with_left_bracket(this.value);">
+        <input type="button" class="btn operator" value="atan" onclick="get_with_left_bracket(this.value);">
+        <button type="button" class="btn other" value="clearf" onclick="clearf();">$CE$</button>
+        <br>
+        <input type="button" class="btn number" value="4" onclick="get(this.value);">
+        <input type="button" class="btn number" value="5" onclick="get(this.value);">
+        <input type="button" class="btn number" value="6" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="*" onclick="get(this.value);">
+        <input type="button" class="btn operator" value=")" onclick="get(this.value);">
+        <button type="button" class="btn operator" value="x^y" onclick="pow();">$x^y$</button>
+        <input type="button" class="btn operator" value="asin" onclick="get_with_left_bracket(this.value);">
+        <input type="button" class="btn operator" value="!" onclick="get(this.value);">
+        <button type="button" class="btn other" value="backf" onclick="backf();">⌫</button>
+        <br>
+        <input type="button" class="btn number" value="1" onclick="get(this.value);">
+        <input type="button" class="btn number" value="2" onclick="get(this.value);">
+        <input type="button" class="btn number" value="3" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="-" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="sin" onclick="get_with_left_bracket(this.value);">
+        <input type="button" class="btn operator" value="sqrt" onclick="get_with_left_bracket(this.value);">
+        <input type="button" class="btn operator" value="acos" onclick="get_with_left_bracket(this.value);">
+        <input type="button" class="btn operator" value="%" onclick="get(this.value);">
+        <br>
+        <input type="button" class="btn number" value="0" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="." onclick="get(this.value);">
+        <input type="button" class="btn other" value="=" onclick="calculates();">
+        <input type="button" class="btn operator" value="/" onclick="get(this.value);">
+        <input type="button" class="btn operator" value="cos" onclick="get_with_left_bracket(this.value);">
+        <button type="button" class="btn number" value="Π" onclick="get(this.value);">π</button>
+        <button type="button" class="btn number" value="e" onclick="get(this.value);">$e$</button>
+        <button type="button" class="btn operator" value="x^2" onclick="pow2();">$x^2$</button>
+    </form>
+</div>
+</body>

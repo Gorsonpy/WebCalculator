@@ -12,7 +12,10 @@ func UpdateDep(c *gin.Context) {
 	var deposit entity.Deposit
 	err := c.ShouldBindJSON(&deposit)
 	if err != nil {
-		panic(err)
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
+		return
 	}
 	if !service.ExistDuration(deposit.Duration, 1) {
 		c.JSON(http.StatusOK, gin.H{
