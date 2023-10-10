@@ -82,8 +82,6 @@ form {
     height: 40px;
     width: 90%;
     background-color: transparent;
-    /*显示字体颜色*/
-    font-size: 30px;
     text-align: right;
 }
 #display input:focus {
@@ -91,10 +89,13 @@ form {
 }
 
 #answer{
-    font-size: 35px;
+    font-size: 32px;
     color: black;
 }
-
+#operation{
+    font-size: 25px;
+    color: #72778b;
+}
 .number {
     background-color: #72778b;
     box-shadow: 0 5px #5f6680;
