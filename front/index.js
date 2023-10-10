@@ -30,38 +30,40 @@ const errMsg = "undefined";
 var expression = ""; //实际运算的表达式
 
 function clearf() {
-    document.getElementById("display").value = "";
+    document.getElementById("operation").value = "";
+    document.getElementById("answer").value = "";
     expression = "";
 }
 
 function backf() {
-    str = document.getElementById("display").value;
-    document.getElementById("display").value = str.slice(0, -1);
+    str = document.getElementById("operation").value;
+    document.getElementById("answer").value = "";
+    document.getElementById("operation").value = str.slice(0, -1);
     expression = expression.slice(0, -1);
 }
 
 /* recebe os valores */
 function get(value) {
-    if (document.getElementById("display").value === errMsg) {
-        document.getElementById("display").value = "";
+    if (document.getElementById("answer").value === errMsg) {
+        document.getElementById("operation").value = "";
         expression = ""
     }
-    document.getElementById("display").value += value;
+    document.getElementById("operation").value += value;
     expression += value;
 }
 
 function pow() {
-    if (document.getElementById("display").value === errMsg) {
-        document.getElementById("display").value = "";
+    if (document.getElementById("answer").value === errMsg) {
+        document.getElementById("operation").value = "";
         expression = ""
     }
-    document.getElementById("display").value += "^";
+    document.getElementById("operation").value += "^";
     expression += "^";
 }
 
 function pow2() {
-    if (document.getElementById("display").value === errMsg) {
-        document.getElementById("display").value = "";
+    if (document.getElementById("answer").value === errMsg) {
+        document.getElementById("operation").value = "";
         expression = ""
     }
     document.getElementById("display").value += "^2";
@@ -69,12 +71,12 @@ function pow2() {
 }
 
 function get_with_left_bracket(value) {
-    if (document.getElementById("display").value === errMsg) {
-        document.getElementById("display").value = "";
+    if (document.getElementById("answer").value === errMsg) {
+        document.getElementById("operation").value = "";
         expression = ""
     }
-    document.getElementById("display").value += value;
-    document.getElementById("display").value += "(";
+    document.getElementById("operation").value += value;
+    document.getElementById("operation").value += "(";
     expression += value;
     expression += "(";
 }
@@ -82,12 +84,11 @@ function get_with_left_bracket(value) {
 
 /* calcula */
 function calculates() {
-    var s = document.getElementById("display").value;
-    document.getElementById("display").value = "";
+    var s = document.getElementById("operation").value;
     var result = "";
 
     if (expression === "") {
-        document.getElementById("display").value = "";
+        document.getElementById("ansswer").value = "";
         expression = "";
     } else {
         try {
@@ -95,20 +96,15 @@ function calculates() {
 
         } catch (error) {
             console.error("An error occurred while evaluating the expression: " + error);
-            result = errMsg; // 设置一个错误提示
-
-            document.getElementById("display").value = result;
-            expression = document.getElementById("display").value;
+            document.getElementById("answer").value = errMsg;
             return
         }
 
-        document.getElementById("display").value = result;
-        expression = document.getElementById("display").value;
-
+        document.getElementById("answer").value = result;
         // 创建一个包含表达式和结果的对象
         var dataToSend = {
             exp: s,
-            val: expression
+            val: document.getElementById("answer").value
         };
 
         console.log(JSON.stringify(dataToSend))

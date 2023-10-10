@@ -28,7 +28,12 @@
 <div class="center">
     <h1>$Gorsonpy$ 的 计算器</h1>
     <form name="calculator">
-        <input type="text" id="display" readonly>
+        <div id="display">
+<!--            TODO-->
+            <input type="text" id="operation" disabled>
+            <br>
+            <input type="text" id="answer" disabled>
+        </div>
         <br>
         <input type="button" class="btn number" value="7" onclick="get(this.value);">
         <input type="button" class="btn number" value="8" onclick="get(this.value);">

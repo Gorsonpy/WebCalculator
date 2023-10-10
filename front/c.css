@@ -39,10 +39,11 @@ form {
     background-color: #495678;
     box-shadow: 4px 4px #3d4a65;
     margin: 40px auto;
-    padding: 40px 0 30px 40px;
-    width: 570px;
+    padding: 40px;
+    width: 540px;
     /* 调整整个计算器的宽度*/
-    height: 330px;
+    height: 350px;
+    align-content: center;
 }
 
 .btn {
@@ -66,17 +67,32 @@ form {
 
 #display {
     outline: none;
+    position: relative;
     background-color: #98d1dc;
+    /*background-color: white;*/
     box-shadow: inset 6px 6px 0px #3facc0;
     color: #590808;
-    /*显示字体颜色*/
-    font-size: 25px;
-    height: 120px;
-    text-align: right;
-    width: 525px;
     /*显示框的长度*/
-    padding-right: 10px;
-    margin-left: 10px;
+    /*width: 90%;*/
+}
+
+#display input {
+    margin: 10px 10px 10px 30px;
+    border: none;
+    height: 40px;
+    width: 90%;
+    background-color: transparent;
+    /*显示字体颜色*/
+    font-size: 30px;
+    text-align: right;
+}
+#display input:focus {
+    border: 0;
+}
+
+#answer{
+    font-size: 35px;
+    color: black;
 }
 
 .number {
