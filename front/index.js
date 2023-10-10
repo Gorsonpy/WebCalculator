@@ -66,7 +66,7 @@ function pow2() {
         document.getElementById("operation").value = "";
         expression = ""
     }
-    document.getElementById("display").value += "^2";
+    document.getElementById("operation").value += "^2";
     expression += "^2";
 }
 
