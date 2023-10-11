@@ -8,7 +8,7 @@ import (
 )
 
 func QueryHistory(c *gin.Context) {
-	var histories [10]entity.History
+	var histories []entity.History
 	mysql.DB.Order("created_at desc").Limit(10).Find(&histories)
 	// service.GetLast10(histories)
 	c.JSON(http.StatusOK, gin.H{

@@ -8,70 +8,136 @@
 -->
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<!--    <link rel="stylesheet" type="text/css" href="b.css">-->
-    <link rel = "stylesheet" type = "text/css" href="c.css">
-    <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <!--    <link rel="stylesheet" type="text/css" href="b.css">-->
+    <link rel="stylesheet" type="text/css" href="c.css">
+
+
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
 
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
     });
+
+
+
     </script>
     <script src="math.js" type="application/javascript"></script>
     <script src="index.js" type="application/javascript"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+
 </head>
 
 <body>
-
-<div class="center">
-    <h1>$Gorsonpy$ 的 计算器</h1>
-    <form name="calculator">
-        <div id="display">
-<!--            TODO-->
-            <input type="text" id="operation" disabled>
+<div class="container">
+    <button type="button" class="mode1-button" id="topMode" onclick="mode()">科学计算器</button>
+    <div class="center normal">
+        <form name="calculator">
+            <div id="display">
+                <input type="text" id="operation" disabled>
+                <br>
+                <input type="text" id="answer" disabled>
+            </div>
             <br>
-            <input type="text" id="answer" disabled>
-        </div>
-        <br>
-        <input type="button" class="btn number" value="7" onclick="get(this.value);">
-        <input type="button" class="btn number" value="8" onclick="get(this.value);">
-        <input type="button" class="btn number" value="9" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="+" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="(" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="log" onclick="get_with_left_bracket(this.value);">
-        <input type="button" class="btn operator" value="tan" onclick="get_with_left_bracket(this.value);">
-        <input type="button" class="btn operator" value="atan" onclick="get_with_left_bracket(this.value);">
-        <button type="button" class="btn other" value="clearf" onclick="clearf();">$CE$</button>
-        <br>
-        <input type="button" class="btn number" value="4" onclick="get(this.value);">
-        <input type="button" class="btn number" value="5" onclick="get(this.value);">
-        <input type="button" class="btn number" value="6" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="*" onclick="get(this.value);">
-        <input type="button" class="btn operator" value=")" onclick="get(this.value);">
-        <button type="button" class="btn operator" value="x^y" onclick="pow();">$x^y$</button>
-        <input type="button" class="btn operator" value="asin" onclick="get_with_left_bracket(this.value);">
-        <input type="button" class="btn operator" value="!" onclick="get(this.value);">
-        <button type="button" class="btn other" value="backf" onclick="backf();">⌫</button>
-        <br>
-        <input type="button" class="btn number" value="1" onclick="get(this.value);">
-        <input type="button" class="btn number" value="2" onclick="get(this.value);">
-        <input type="button" class="btn number" value="3" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="-" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="sin" onclick="get_with_left_bracket(this.value);">
-        <input type="button" class="btn operator" value="sqrt" onclick="get_with_left_bracket(this.value);">
-        <input type="button" class="btn operator" value="acos" onclick="get_with_left_bracket(this.value);">
-        <input type="button" class="btn operator" value="%" onclick="get(this.value);">
-        <br>
-        <input type="button" class="btn number" value="0" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="." onclick="get(this.value);">
-        <input type="button" class="btn other" value="=" onclick="calculates();">
-        <input type="button" class="btn operator" value="/" onclick="get(this.value);">
-        <input type="button" class="btn operator" value="cos" onclick="get_with_left_bracket(this.value);">
-        <button type="button" class="btn number" value="Π" onclick="get(this.value);">π</button>
-        <button type="button" class="btn number" value="e" onclick="get(this.value);">$e$</button>
-        <button type="button" class="btn operator" value="x^2" onclick="pow2();">$x^2$</button>
-    </form>
+            <input type="button" class="btn number" value="7" onclick="get(this.value);">
+            <input type="button" class="btn number" value="8" onclick="get(this.value);">
+            <input type="button" class="btn number" value="9" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="+" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="(" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="log" onclick="get_with_left_bracket(this.value);">
+            <input type="button" class="btn operator" value="tan" onclick="get_with_left_bracket(this.value);">
+            <input type="button" class="btn operator" value="atan" onclick="get_with_left_bracket(this.value);">
+            <button type="button" class="btn other" value="clearf" onclick="clearf();">$CE$</button>
+            <br>
+            <input type="button" class="btn number" value="4" onclick="get(this.value);">
+            <input type="button" class="btn number" value="5" onclick="get(this.value);">
+            <input type="button" class="btn number" value="6" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="*" onclick="get(this.value);">
+            <input type="button" class="btn operator" value=")" onclick="get(this.value);">
+            <button type="button" class="btn operator" value="x^y" onclick="pow();">$x^y$</button>
+            <input type="button" class="btn operator" value="asin" onclick="get_with_left_bracket(this.value);">
+            <input type="button" class="btn operator" value="!" onclick="get(this.value);">
+            <button type="button" class="btn other" value="backf" onclick="backf();">⌫</button>
+            <br>
+            <input type="button" class="btn number" value="1" onclick="get(this.value);">
+            <input type="button" class="btn number" value="2" onclick="get(this.value);">
+            <input type="button" class="btn number" value="3" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="-" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="sin" onclick="get_with_left_bracket(this.value);">
+            <input type="button" class="btn operator" value="sqrt" onclick="get_with_left_bracket(this.value);">
+            <input type="button" class="btn operator" value="acos" onclick="get_with_left_bracket(this.value);">
+            <input type="button" class="btn operator" value="%" onclick="get(this.value);">
+            <button type="button" class="btn special" value="ans" onclick="ans();">$ans$</button>
+            <br>
+            <input type="button" class="btn number" value="0" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="." onclick="get(this.value);">
+            <input type="button" class="btn other" value="=" onclick="calculates();">
+            <input type="button" class="btn operator" value="/" onclick="get(this.value);">
+            <input type="button" class="btn operator" value="cos" onclick="get_with_left_bracket(this.value);">
+            <button type="button" class="btn number" value="Π" onclick="get(this.value);">π</button>
+            <button type="button" class="btn number" value="e" onclick="get(this.value);">$e$</button>
+            <button type="button" class="btn operator" value="x^2" onclick="pow2();">$x^2$</button>
+            <button type="button" class="btn special" value="mode" onclick="mode();">$mode$</button>
+        </form>
+    </div>
+
+    <div class="center interest" style="display: none;">
+        <form name="calculator" class="calculator-form"> <!-- 添加一个类名 calculator-form -->
+            <div id="cal_inter">
+                <label for="principal">金额：</label>
+                <input type="text" id="principal" placeholder="输入金额">
+                <br>
+                <label for="duration">时长：</label>
+                <input type="text" id="duration" placeholder="输入时长(年)">
+                <br>
+                <label for="inter">利息：</label>
+                <input type="text" id="inter" readonly>
+                <br>
+                <button type="button" value="计算" onclick="calculateInterest();">计算</button>
+            </div>
+
+            <div id="update_inter" style="display: none">
+                <label for="duration2">时长：</label>
+                <select id="duration2">
+                    <option value="0">活期存款</option>
+                    <option value="0.25">3个月</option>
+                    <option value="0.5">半年</option>
+                    <option value="1">1年</option>
+                    <option value="2">2年</option>
+                    <option value="3">3年</option>
+                    <option value="5">5年</option>
+                    <!-- 添加更多选项 -->
+                </select>
+                <br>
+                <label for="rate">利率：</label>
+                <input type="text" id="rate" placeholder="要修改的利率">
+                <br>
+                <button type="button" value="计算" onclick="updateInterest();">修改</button>
+            </div>
+
+            <div id="update_inter2">
+                <label for="time2">时长：</label>
+                <select id="time2">
+                    <option value="0.5">六个月</option>
+                    <option value="1">1年</option>
+                    <option value="1.000001">1至3年</option>
+                    <option value="3.000001">3至5年</option>
+                    <option value="5">5年</option>
+                    <!-- 添加更多选项 -->
+                </select>
+                <br>
+                <label for="rate2">利率：</label>
+                <input type="text" id="rate2" placeholder="要修改的利率">
+                <br>
+                <button type="button" value="计算" onclick="updateInterest();">修改</button>
+            </div>
+        </form>
+    </div>
+
 </div>
 </body>

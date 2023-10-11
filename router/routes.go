@@ -25,7 +25,7 @@ func SetUpRoutes(engine *gin.Engine) {
 	}
 	l := engine.Group("/loans")
 	{
-		l.POST("/", loans.QueryInterest)
-		l.GET("/", loans.UpdateLoans)
+		l.GET("/", loans.QueryInterest)
+		l.POST("/", loans.UpdateLoans)
 	}
 }

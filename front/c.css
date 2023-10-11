@@ -49,7 +49,7 @@ form {
 .btn {
     outline: none;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
     height: 45px;
     margin: 5px 0 5px 10px;
     width: 45px;
@@ -65,6 +65,24 @@ form {
     border-radius: 25px;
 }
 
+
+.expression-container{
+    font-size: 22px; /* 设置字体大小 */
+    font-style: normal; /* 设置字体样式 */
+    font-weight: bold;
+    text-align: left; /* 左对齐 */
+    /* 其他样式设置 */
+}
+
+
+
+.exp {
+
+    text-align: left; /* 左对齐 */
+    /* 其他样式设置 */
+}
+
+
 #display {
     outline: none;
     position: relative;
@@ -76,6 +94,77 @@ form {
     /*width: 90%;*/
 }
 
+
+
+/* 样式化输入文本框 */
+#time, #money, #principal, #duration{
+    width: 45%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    box-shadow: #007bff;
+}
+
+/* 选中时的输入框样式 */
+#money:focus, #time:focus, #principal:focus, #duration:focus {
+    outline: none;
+    border-color: #007bff;
+    background-color: #cecdc4; /* 设置选中时的背景色 */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#mode2 {
+    height: 20px;
+}
+
+/* 获得焦点时的输入框样式 */
+#principal:focus, #duration:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* 样式化提示信息文字 */
+#update_inter2 label, #cal_inter label, #update_inter label {
+    display: inline-block; /* 将标签设置为行内块元素 */
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* 样式化按钮 */
+#update_inter2 button,
+#cal_inter button,
+#update_inter button{
+    padding: 10px 20px;
+    background-color: #e3844c;
+    box-shadow: 0 5px #e76a3d;
+    color: #dededc;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+/* 设置表单容器的宽度 */
+.calculator-form {
+    width: 500px; /* 根据需要调整宽度 */
+    height: auto;
+    margin: 0 auto; /* 居中显示 */
+}
+
+/* 鼠标悬停时按钮高亮显示 */
+#cal_inter2 #update_inter2 #cal_inter #update_inter button:hover {
+    background-color: red; /* 鼠标悬停时的背景颜色 */
+}
+
+
+
 #display input {
     margin: 10px 10px 10px 30px;
     border: none;
@@ -84,10 +173,45 @@ form {
     background-color: transparent;
     text-align: right;
 }
+
+/* 隐藏利息输入框的边框 */
+#inter, #cnt{
+    color: orangered;
+    background-color: transparent;
+    border: none;
+    width: 30%;
+    padding: 10px;
+    font-size: 20px;
+    outline: none; /* 去除边框时的轮廓线 */
+}
+
+input[readonly] {
+    cursor: default; /* 设置鼠标样式为默认 */
+}
+
 #display input:focus {
     border: 0;
 }
+.calculator-form {
+    width: 70%;
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: row; /* 水平排列子元素 */
+}
 
+#cal_inter2, #update_inter2, #cal_inter, #update_inter {
+    flex: 1; /* 均分父容器的宽度 */
+    margin-right: 5px; /* 设置间距 */
+}
+#time2, #rate2, #duration2, #rate{
+    width: 45%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    box-shadow: #007bff;
+}
 #answer{
     font-size: 32px;
     color: black;
@@ -137,3 +261,36 @@ form {
     -moz-tranform: translateY(2px);
     transform: translateY(2px);
 }
+
+.special {
+    background-color: #921541;
+    box-shadow: 0 5px #890c4f;
+    color: #dededc;
+}
+
+.special:active {
+    box-shadow: 0 2px #a20d58;
+    -webkit-transform: translateY(2px);
+    -ms-transform: translateY(2px);
+    -moz-tranform: translateY(2px);
+    transform: translateY(2px);
+}
+
+/* 这是你的 CSS 文件中 */
+.mode1-button {
+    background-color: #495678; /* 设置背景颜色 */
+    color: #FFFFFF; /* 设置文字颜色 */
+    border: 1px solid #4c5b84; /* 设置边框 */
+    padding: 10px 20px; /* 设置内边距 */
+    border-radius: 5px 5px 0 0; /* 设置圆角 */
+    cursor: pointer; /* 当鼠标悬停时显示手型指针 */
+    font-size: 23px;
+    position: relative;
+    top: 40px; /* 向上移动 20 像素，根据需要进行调整 */
+    left: 640px; /* 向左移动 10 像素，根据需要进行调整 */
+}
+
+.calculator-form {
+    margin-top: 40px;
+}
+

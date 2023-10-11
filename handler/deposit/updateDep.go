@@ -4,6 +4,7 @@ import (
 	"WebCalculator/dal/mysql"
 	"WebCalculator/entity"
 	"WebCalculator/service"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
@@ -11,6 +12,7 @@ import (
 func UpdateDep(c *gin.Context) {
 	var deposit entity.Deposit
 	err := c.ShouldBindJSON(&deposit)
+	fmt.Println(deposit)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
